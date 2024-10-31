@@ -12,8 +12,22 @@ class TTTBoard:
     def __init__(self, board=[]):
         self.board = [" * ", " * ", " * ", " * ", " * ", " * ", " * ", " * ", " * "]
     
-    def __str__(self):
-        s = f" {self.board[0]} {self.board[1]} {self.board[2]} \n {self.board[3]} {self.board[4]} {self.board[5]} \n {self.board[6]} {self.board[7]} {self.board[8]}"
+    def __str__(self)-> str:
+        return f" {self.board[0]} {self.board[1]} {self.board[2]} \n {self.board[3]} {self.board[4]} {self.board[5]} \n {self.board[6]} {self.board[7]} {self.board[8]}"
+    
+    def make_move(self, players, pos):
+        if(pos < 9 and players == "X" or "O"):
+            self.board[pos] = " " + players + " "
+            return True
+        elif (self.board[pos] == "X" or "O"):
+            return False
+    
+    def has_won(self, player):
+        if():
+
+    def game_over(self):
+        if (has_won == True):
+            return 
 
 
 def play_tic_tac_toe() -> None:
@@ -57,6 +71,7 @@ def play_tic_tac_toe() -> None:
         print(f"{players[1]} wins!")
     else:
         print(f"Board full, cat's game!")
+    
 
 
 if __name__ == "__main__":
@@ -66,7 +81,7 @@ if __name__ == "__main__":
     brd = TTTBoard()
     brd.make_move("X", 8)
     brd.make_move("O", 7)
-
+    print(brd)
     assert brd.game_over() == False
 
     brd.make_move("X", 5)
